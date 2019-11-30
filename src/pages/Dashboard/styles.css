@@ -1,0 +1,67 @@
+container,
+body {
+  overflow: hidden;
+}
+
+.dashboard-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar-content {
+  align-items: center;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 5px #b8b8b8;
+  display: flex;
+  flex-direction: column;
+  height: 43px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.toolbar-actions {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 100%;
+  justify-content: center;
+  width: 950px;
+}
+
+.toolbar-actions img {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  height: 100vh;
+  width: 950px;
+}
+
+.dashboard-content div:hover {
+  overflow-y: overlay;
+  scroll-behavior: smooth;
+}
+
+.dashboard-content div:not(:hover) {
+  overflow-y: hidden;
+}
+
+.projects-navbar {
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 100%;
+}
+
+.tasks-content {
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  width: 100%;
+  height: 100%;
+}
