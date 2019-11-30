@@ -1,33 +1,43 @@
-.content {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 160px auto 80px;
-    width: 350px;
-    height: 100%;
-  }
-  
-  .content a {
-    color: #df4723;
-    font-size: 12px;
-    margin-top: 20px;
-    text-decoration: none;
-  }
-  
-  .content form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .content form label {
-    margin-top: 20px;
-  }
-  
-  .content form input {
-    margin-top: 5px;
-  }
-  
-  .content form button {
-    margin-top: 15px;
-  }
+.login-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 160px auto 80px;
+  width: 350px;
+  height: 100%;
+}
+
+.login-content a {
+  color: #df4723;
+  font-size: 13px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.login-content form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-content form label {
+  margin-top: 20px;
+}
+
+.login-content form input {
+  margin-top: 5px;
+}
+
+.login-content form button {
+  margin-top: 15px;
+}
+
+.login-content span.error {
+  font-weight: bold;
+  margin: 30px auto 30px;
+}
+
+.login-content span {
+  font-size: 13px;
+  margin-top: 10px;
+}

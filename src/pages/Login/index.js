@@ -7,6 +7,7 @@ import "./styles.css";
 export default function Login({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -15,13 +16,14 @@ export default function Login({ history }) {
       localStorage.setItem("token", response.data.token);
       history.push("/dashboard");
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.error);
     }
   }
 
   return (
-    <div className="content">
+    <div className="login-content">
       <img src={logo} alt="task manager" />
+      {error && <span className="error">{error}</span>}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
@@ -29,6 +31,7 @@ export default function Login({ history }) {
           name="email"
           id="email"
           onChange={event => setEmail(event.target.value)}
+          required
         />
         <label htmlFor="password">Password</label>
         <input
@@ -36,14 +39,18 @@ export default function Login({ history }) {
           name="password"
           id="password"
           onChange={event => setPassword(event.target.value)}
+          required
         />
         <button type="submit" className="btn">
-          Login
+          Log in
         </button>
       </form>
       <a href="http://" target="_blank" rel="noopener noreferrer">
         Forgot your password?
       </a>
+      <span>
+        If you don't have an account sign up <a href="/signup">here</a>
+      </span>
     </div>
   );
 }
