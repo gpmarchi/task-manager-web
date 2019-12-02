@@ -1,0 +1,43 @@
+.toolbar-actions {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  height: 100%;
+  justify-content: center;
+  width: 950px;
+}
+
+.toolbar-logo,
+.toolbar-search {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toolbar-logo {
+  justify-content: flex-start;
+}
+
+.toolbar-search {
+  margin: 0 20px 0 20px;
+}
+
+.toolbar-buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.toolbar-search input {
+  height: 30px;
+  width: 100%;
+}
+
+.toolbar-logo img,
+.toolbar-buttons img {
+  height: 23px;
+  width: 23px;
+  cursor: pointer;
+  margin: 0 5px 0 5px;
+}
