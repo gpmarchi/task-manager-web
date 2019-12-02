@@ -51,6 +51,16 @@ export default function Login({ history }) {
       <span>
         If you don't have an account sign up <a href="/signup">here</a>
       </span>
+      <div className="icon-credit">
+        Icons made by{" "}
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+          Freepik
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
     </div>
   );
 }
