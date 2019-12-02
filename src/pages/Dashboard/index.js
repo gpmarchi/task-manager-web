@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
+import Toolbar from "../../components/Toolbar";
 import api from "../../services/api";
 
 import "./styles.css";
-import gear from "../../assets/gear.svg";
 
 export default function Dashboard({ history }) {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    console.log("useeffect");
-
     async function loadProjects() {
       const token = localStorage.getItem("token");
       try {
@@ -32,9 +30,7 @@ export default function Dashboard({ history }) {
   return (
     <div className="dashboard-container">
       <div className="toolbar-content">
-        <div className="toolbar-actions">
-          <img src={gear} alt="gear" />
-        </div>
+        <Toolbar />
       </div>
       <div className="dashboard-content">
         <div className="projects-navbar">
