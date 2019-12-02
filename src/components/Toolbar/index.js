@@ -20,6 +20,7 @@ function Toolbar({ history }) {
           }
         }
       );
+      localStorage.removeItem("token");
       history.push("/");
     } catch (error) {
       console.log(error);
@@ -36,6 +37,7 @@ function Toolbar({ history }) {
           Authorization: `Bearer ${token}`
         }
       });
+      localStorage.removeItem("token");
       history.push("/");
     } catch (error) {
       console.log(error.response);
