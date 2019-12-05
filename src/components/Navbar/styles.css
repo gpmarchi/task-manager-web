@@ -1,0 +1,42 @@
+.projects-navbar {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+.common-task-filters {
+  border-bottom: 1px solid #eee;
+  margin-top: 40px;
+}
+
+.project-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project-actions img {
+  height: 15px;
+  margin: 10px;
+  width: 15px;
+}
+
+.current-selected-project {
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.project-item,
+li {
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 10px 10px 10px 10px;
+  transition: 0.3s;
+}
+
+li:hover {
+  background-color: #fff;
+}
