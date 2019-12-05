@@ -56,6 +56,13 @@ export default function Login({ history }) {
         <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
           Freepik
         </a>{" "}
+        and{" "}
+        <a
+          href="https://www.flaticon.com/authors/those-icons"
+          title="Those Icons"
+        >
+          Those Icons
+        </a>{" "}
         from{" "}
         <a href="https://www.flaticon.com/" title="Flaticon">
           www.flaticon.com
