@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
-
-import addButton from "../../assets/add-button.svg";
+import AddProject from "../AddProject";
 
 import "./styles.css";
 
@@ -21,13 +20,10 @@ export default function Navbar({ history }) {
         setProjects(response.data);
       } catch (error) {
         console.log(error.response);
-        if (error.response.status === 401) {
-          history.push("/");
-        }
       }
     }
     loadProjects();
-  }, [history]);
+  }, []);
 
   function handleProjectClick(event, projectId) {
     const projects = document.querySelectorAll("ul li");
@@ -50,7 +46,7 @@ export default function Navbar({ history }) {
       <div className="projects">
         <div className="project-actions">
           <button>Projects</button>
-          <img src={addButton} alt="add project" />
+          <AddProject />
         </div>
         <ul className="main-projects">
           {projects.map(project => {
