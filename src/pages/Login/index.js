@@ -41,7 +41,7 @@ export default function Login({ history }) {
           onChange={event => setPassword(event.target.value)}
           required
         />
-        <button type="submit" className="btn">
+        <button type="submit" className="app-btn">
           Log in
         </button>
       </form>
