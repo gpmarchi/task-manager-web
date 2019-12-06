@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
-import Login from "../../pages/Login";
-import Signup from "../../pages/Signup";
-import Dashboard from "../../pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 
 export default function Router() {
   return (
