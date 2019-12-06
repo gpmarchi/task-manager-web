@@ -20,7 +20,6 @@ export default function PrivateRoute({ component: Component, ...otherProps }) {
             Authorization: `Bearer ${token}`
           }
         });
-        console.log("verification", token && response.data ? true : false);
         setAuthenticated(token && response.data ? true : false);
         setLoading(false);
       } catch (error) {
