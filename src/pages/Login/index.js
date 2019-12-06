@@ -53,18 +53,30 @@ export default function Login({ history }) {
       </span>
       <div className="icon-credit">
         Icons made by{" "}
-        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+        <a
+          href="https://www.flaticon.com/authors/freepik"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Freepik"
+        >
           Freepik
         </a>{" "}
         and{" "}
         <a
           href="https://www.flaticon.com/authors/those-icons"
+          target="_blank"
+          rel="noopener noreferrer"
           title="Those Icons"
         >
           Those Icons
         </a>{" "}
         from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
+        <a
+          href="https://www.flaticon.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Flaticon"
+        >
           www.flaticon.com
         </a>
       </div>
