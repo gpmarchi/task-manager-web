@@ -7,7 +7,7 @@ import addButton from "../../assets/add-button.svg";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function AddProject() {
+export default function AddProject({ projects, setProjects }) {
   const [showModal, setShowModal] = useState(false);
   const [projectName, setProjectName] = useState("");
 
@@ -17,7 +17,7 @@ export default function AddProject() {
   const handleFormSubmit = async () => {
     const token = localStorage.getItem("token");
 
-    await api.post(
+    const response = await api.post(
       "/projects",
       { name: projectName },
       {
@@ -26,7 +26,7 @@ export default function AddProject() {
         }
       }
     );
-
+    setProjects([...projects, response.data]);
     setShowModal(false);
   };
 

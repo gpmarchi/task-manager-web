@@ -1,52 +1,29 @@
-import React, { useState, useEffect } from "react";
-import api from "../../services/api";
+import React from "react";
 import AddProject from "../AddProject";
 
 import "./styles.css";
 
-export default function Navbar({ history }) {
-  const [projects, setProjects] = useState([]);
-  const [selectedProject, setSelectedProject] = useState("");
-
-  useEffect(() => {
-    async function loadProjects() {
-      const token = localStorage.getItem("token");
-      try {
-        const response = await api.get("/projects", {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        setProjects(response.data);
-      } catch (error) {
-        console.log(error.response);
-      }
-    }
-    loadProjects();
-  }, []);
-
-  function handleProjectClick(event, projectId) {
+export default function Navbar({ projects, setProjects, setSelectedProject }) {
+  function handleProjectClick(event, projectId, projectName) {
     const projects = document.querySelectorAll("ul li");
     for (let index = 0; index < projects.length; index++) {
       projects[index].className = "project-item";
     }
     event.target.className = "current-selected-project";
-    setSelectedProject(projectId);
+    setSelectedProject({ projectId, projectName });
   }
 
   return (
-    <div className="projects-navbar">
-      <div className="common-task-filters">
+    <>
+      <div className="app-navbar">
         <ul className="filters-list">
           <li>Inbox</li>
           <li>Today</li>
           <li>Next 7 days</li>
         </ul>
-      </div>
-      <div className="projects">
         <div className="project-actions">
           <button>Projects</button>
-          <AddProject />
+          <AddProject projects={projects} setProjects={setProjects} />
         </div>
         <ul className="main-projects">
           {projects.map(project => {
@@ -54,7 +31,9 @@ export default function Navbar({ history }) {
               <li
                 className="project-item"
                 key={project._id}
-                onClick={event => handleProjectClick(event, project._id)}
+                onClick={event =>
+                  handleProjectClick(event, project._id, project.name)
+                }
               >
                 {project.name}
               </li>
@@ -62,6 +41,6 @@ export default function Navbar({ history }) {
           })}
         </ul>
       </div>
-    </div>
+    </>
   );
 }
