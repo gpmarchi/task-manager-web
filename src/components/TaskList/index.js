@@ -29,7 +29,7 @@ export default function TaskList({ selectedProject }) {
   return (
     <div className="task-list">
       <h1>{selectedProject.projectName}</h1>
-      <ul className="main-projects">
+      <ul className="task-list">
         {tasks.map(task => {
           return (
             <li className="task-item" key={task._id}>
