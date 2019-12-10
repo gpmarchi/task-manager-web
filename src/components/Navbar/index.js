@@ -13,6 +13,17 @@ export default function Navbar({ projects, setProjects, setSelectedProject }) {
     setSelectedProject({ projectId, projectName });
   }
 
+  function handleCollapsibleElement() {
+    const collapsible = document.querySelector("div .project-actions");
+    const nextSibling = collapsible.nextElementSibling;
+    collapsible.classList.toggle("active");
+    if (nextSibling.style.display === "block") {
+      nextSibling.style.display = "none";
+    } else {
+      nextSibling.style.display = "block";
+    }
+  }
+
   return (
     <>
       <div className="app-navbar">
@@ -22,10 +33,10 @@ export default function Navbar({ projects, setProjects, setSelectedProject }) {
           <li>Next 7 days</li>
         </ul>
         <div className="project-actions">
-          <button>Projects</button>
+          <button onClick={handleCollapsibleElement}>Projects</button>
           <AddProject projects={projects} setProjects={setProjects} />
         </div>
-        <ul className="main-projects">
+        <ul className="project-list">
           {projects.map(project => {
             return (
               <li
