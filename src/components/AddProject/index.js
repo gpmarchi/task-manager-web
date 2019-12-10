@@ -32,7 +32,14 @@ export default function AddProject({ projects, setProjects }) {
 
   return (
     <>
-      <img src={addButton} alt="add project" onClick={handleShowModal} />
+      <aside>
+        <img
+          src={addButton}
+          alt="add project"
+          className="addProject"
+          onClick={handleShowModal}
+        />
+      </aside>
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

@@ -1,5 +1,8 @@
-img {
+.addProject {
   cursor: pointer;
+  height: 15px;
+  margin: 10px;
+  width: 15px;
 }
 
 .modal-dialog {
