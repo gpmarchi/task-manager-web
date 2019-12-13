@@ -33,7 +33,8 @@ export default function TaskList({ selectedProject }) {
         {tasks.map(task => {
           return (
             <li className="task-item" key={task._id}>
-              {task.description}
+              <input type="radio" name="" id="" />
+              <span>{task.description}</span>
             </li>
           );
         })}
