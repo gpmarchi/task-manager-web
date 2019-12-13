@@ -1,0 +1,6 @@
+li {
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 10px 10px 10px;
+  transition: 0.3s;
+}
