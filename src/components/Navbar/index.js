@@ -1,20 +1,23 @@
 import React from "react";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import DropdownItem from "react-bootstrap/DropdownItem";
 import AddProject from "../AddProject";
+import api from "../../services/api";
 
 import "./styles.css";
 
 export default function Navbar({ projects, setProjects, setSelectedProject }) {
   function handleProjectClick(event, projectId, projectName) {
-    const projects = document.querySelectorAll("ul li");
+    const projects = document.querySelectorAll("div.project-list header");
     for (let index = 0; index < projects.length; index++) {
       projects[index].className = "project-item";
     }
-    event.target.className = "current-selected-project";
+    event.target.parentNode.className = "project-item current-selected-project";
     setSelectedProject({ projectId, projectName });
   }
 
   function handleCollapsibleElement() {
-    const collapsible = document.querySelector("div .project-actions");
+    const collapsible = document.querySelector("div .projects-collapsible");
     const nextSibling = collapsible.nextElementSibling;
     collapsible.classList.toggle("active");
     if (nextSibling.style.display === "block") {
@@ -22,6 +25,27 @@ export default function Navbar({ projects, setProjects, setSelectedProject }) {
     } else {
       nextSibling.style.display = "block";
     }
+  }
+
+  async function handleContextDelete(projectId) {
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await api.delete(
+        `/projects/${projectId}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+      console.log("delete", response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+
+    // setProjects([...projects, response.data]);
   }
 
   return (
@@ -32,25 +56,34 @@ export default function Navbar({ projects, setProjects, setSelectedProject }) {
           <li>Today</li>
           <li>Next 7 days</li>
         </ul>
-        <div className="project-actions">
+        <header className="projects-collapsible">
           <button onClick={handleCollapsibleElement}>Projects</button>
           <AddProject projects={projects} setProjects={setProjects} />
-        </div>
-        <ul className="project-list">
+        </header>
+
+        <div className="project-list">
           {projects.map(project => {
             return (
-              <li
-                className="project-item"
-                key={project._id}
-                onClick={event =>
-                  handleProjectClick(event, project._id, project.name)
-                }
-              >
-                {project.name}
-              </li>
+              <header className="project-item" key={project._id}>
+                <button
+                  onClick={event =>
+                    handleProjectClick(event, project._id, project.name)
+                  }
+                >
+                  {project.name}
+                </button>
+                <DropdownButton drop="down" title="...">
+                  <DropdownItem
+                    as="button"
+                    onClick={() => handleContextDelete(project._id)}
+                  >
+                    Delete project
+                  </DropdownItem>
+                </DropdownButton>
+              </header>
             );
           })}
-        </ul>
+        </div>
       </div>
     </>
   );
