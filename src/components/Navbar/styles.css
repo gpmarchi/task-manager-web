@@ -31,15 +31,24 @@
 
 .project-list {
   display: none;
+  margin-top: 10px;
   max-height: auto;
   transition: max-height 0.2s ease-out;
 }
 
-.project-item,
+.project-item {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
 ul.filters-list li {
   border-radius: 5px;
   display: flex;
   flex-direction: row;
+  padding: 10px 10px 10px 10px;
   transition: 0.3s;
 }
 
