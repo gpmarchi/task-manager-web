@@ -4,9 +4,8 @@
 
 .projects-collapsible {
   align-items: center;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #f1f1f1;
-  border-radius: 5px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -31,13 +30,14 @@
 
 .project-list {
   display: none;
-  margin-top: 10px;
+  border-bottom: 1px solid #eee;
   max-height: auto;
+  padding: 10px 0 10px 0;
   transition: max-height 0.2s ease-out;
 }
 
 .project-item {
-  border-radius: 5px;
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   margin-left: 10px;
@@ -45,7 +45,7 @@
 }
 
 ul.filters-list li {
-  border-radius: 5px;
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   padding: 10px 10px 10px 10px;
