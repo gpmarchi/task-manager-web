@@ -10,14 +10,11 @@ export default function TaskList({ selectedProject }) {
     async function loadTasks() {
       const token = localStorage.getItem("token");
       try {
-        const response = await api.get(
-          `/tasks?project=${selectedProject.projectId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
+        const response = await api.get(`/tasks?project=${selectedProject.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
           }
-        );
+        });
         setTasks(response.data);
       } catch (error) {
         console.log(error.response);
@@ -28,7 +25,7 @@ export default function TaskList({ selectedProject }) {
 
   return (
     <div className="task-list">
-      <h1>{selectedProject.projectName}</h1>
+      <h1>{selectedProject.name}</h1>
       <ul className="task-list">
         {tasks.map(task => {
           return (

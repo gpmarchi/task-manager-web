@@ -9,8 +9,8 @@ import "./styles.css";
 export default function Dashboard() {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState({
-    projectId: "",
-    projectName: "Inbox"
+    id: "",
+    name: "Inbox"
   });
 
   useEffect(() => {
