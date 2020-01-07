@@ -1,0 +1,11 @@
+ul.filters-list li {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 10px 10px 10px;
+  transition: 0.3s;
+}
+
+li:hover {
+  background-color: #fff;
+}
