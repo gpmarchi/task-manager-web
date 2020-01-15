@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { ProjectsContext } from "../../context/ProjectsContext";
 import api from "../../services/api";
 
 import addButton from "../../assets/add-button.svg";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function AddProject({ projects, setProjects }) {
+export default function AddProject() {
   const [showModal, setShowModal] = useState(false);
   const [projectName, setProjectName] = useState("");
+  const [projects, setProjects] = useContext(ProjectsContext);
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
